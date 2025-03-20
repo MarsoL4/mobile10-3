@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Dimensions, FlatList, Image, Modal, StyleSheet, Text, View } from 'react-native';
-import PizzaItem from "./PizzaItem";
+import PizzaItem from "./components/PizzaItem";
 
 const pizzas = [
   { id: '1', name: 'Margherita', description: 'Tomate, mussarela, manjericão', price: 8.99, image: 'https://s2-receitas.glbimg.com/RL-dN3YlvejAXwiPYoguGlE2p_0=/0x0:1280x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2022/C/H/HXf1trQZGtIylAzO2SUg/pizza-margherita-receita.jpg', ingredients: 'Tomate, mussarela, manjericão' },
