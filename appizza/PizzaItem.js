@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-const PizzaItem = ({ pizza, onPress, onLongPress }) => {
-  return (
-    <TouchableOpacity onPress={onPress} onLongPress={onLongPress} style={styles.container}>
-      <Image source={{ uri: pizza.image }} style={styles.image} />
-      <View style={styles.info}>
-        <Text style={styles.name}>{pizza.name}</Text>
-        <Text style={styles.price}>${pizza.price.toFixed(2)}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+const [selectedPizza, setSelectedPizza] = useState(null);
+
+
+const pizzas = [
+    {}
+]
+
+const handlePress = (pizza) => {
+    // coloca no carrinho
+    console.log('Pressed', pizza.name);
+}
+const handleLongPress = (pizza) => {
+    //abre detalhes
+    console.log('Long Pressed', pizza.name);
+
+}  
+const renderItem = ({ item }) => (
+    <PizzaItem pizza={item} onPress={() => handlePress(item)}
+    onLongPress={() => handleLongPress(item)}  />
+);
+
+const PizzaItem = ({ pizza, onPress, onLongPress}) => {
+    return (
+        <Pressable style={styles.container} onPress={onPress} onLongPress={onLongPress}>
+            <Image source={{ uri: pizza.image }} style={styles.image} />
+            <View style={styles.info}>
+            <Text style={styles.name}>{pizza.name}</Text>
+            <Text style={styles.price}>${pizza.price.toFixed(2)}</Text>
+            </View>
+        </Pressable>
+    );
 };
 
 const styles = StyleSheet.create({
